@@ -1,0 +1,16 @@
+<!-- template.html -->
+{% for post in posts %}
+    <div class="post-container">
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.body|truncatechars:150 }}</p>
+        <button id="like-button-{{ post.id }}" data-post-id="{{ post.id }}" data-content-type="blog_post" data-liked="{{ user.liked_blog_posts.filter(pk=post.id).exists }}">
+            {% if user.liked_blog_posts.filter(pk=post.id).exists %}
+                Unlike
+            {% else %}
+                Like
+            {% endif %}
+        </button>
+        <span id="like-count-{{ post.id }}">{{ post.like_count }}</span>
+    </div>
+{% endfor %}
+
