@@ -1,0 +1,16 @@
+<div class="comment-section">
+    <h2>Comments</h2>
+    <form id="comment-form" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="content_type" value="{{ content_type }}">
+        <input type="hidden" name="object_id" value="{{ post.id }}">
+        <textarea name="comment_text" placeholder="Write a comment..."></textarea>
+        <div class="emoji-picker-container">  </div>
+        <div class="file-upload-container">
+            <input type="file" name="comment_image" accept="image/*">  <input type="file" name="comment_video" accept="video/*">  </div>
+        <button type="submit">Post Comment</button>
+    </form>
+    <ul id="comments-list">
+        </ul>
+</div>
+
